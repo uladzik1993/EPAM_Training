@@ -22,7 +22,7 @@ public class Module02Task08 {
                 matrix[i][j] = rand.nextInt(10);
             }
         }
-        System.out.println("Получилапсь матрица: ");
+        System.out.println("Получилась матрица: ");
         System.out.println();
 
         for (int i = 0; i < N; i++) {

@@ -13,14 +13,14 @@ public class Module02Task12 {
         int l = 10;
         Random rand = new Random();
         int[][] matrix = new int[h][l];
-
+        Sort sotring = new Sort();
 
         for (int i = 0; i < h; i++) {
             for (int j = 0; j < l; j++) {
                 matrix[i][j] = rand.nextInt(10);
             }
         }
-        
+
         System.out.println("Массив до сортировки: ");
 
         for (int i = 0; i < h; i++) {
@@ -29,7 +29,7 @@ public class Module02Task12 {
             }
             System.out.println();
         }
-        Sort sotring = new Sort();
+
 
         sotring.sotrtMin(matrix);
 

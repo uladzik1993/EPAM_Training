@@ -29,13 +29,24 @@ public class Module02Task12 {
             }
             System.out.println();
         }
+        Sort sotring = new Sort();
 
-        for (int i = 0; i < h; i++) {
-            Arrays.sort(matrix[i]);
-        }
+        sotring.sotrtMin(matrix);
 
         System.out.println();
-        System.out.println("Массив после сортировки: ");
+        System.out.println("Массив после сортировки по возрастанию: ");
+
+        for (int i = 0; i < h; i++) {
+            for (int j = 0; j < l; j++) {
+                System.out.print(matrix[i][j] + "\t");
+            }
+            System.out.println();
+        }
+
+        sotring.sotrtMax(matrix);
+
+        System.out.println();
+        System.out.println("Массив после сортировки по убыванию: ");
 
         for (int i = 0; i < h; i++) {
             for (int j = 0; j < l; j++) {

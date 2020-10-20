@@ -8,7 +8,7 @@ import by.epam.training.module02.multiarray.task13.Tool;
 
 public class Module02Task16 {
     public static void main(String[] args) {
-        int n = 3;
+        int n = 4;
         int sumColumn = 0;
         int sumDiag1 = 0;
         int sumDiag2 = 0;
@@ -32,9 +32,8 @@ public class Module02Task16 {
             for (int str = 0; str < magicCube.length; str++) {
                 sumDiag2 += magicCube[str][magicCube.length - 1 - str];
             }
-            if ((sumColumn == sumDiag1) == (sumColumn == sumDiag2)) {
-                result = false;
-            }
+            if ((sumColumn == sumDiag1) && (sumColumn == sumDiag2)) {
+                result = false; }
         }
         System.out.println();
         Tool.printArray(magicCube);

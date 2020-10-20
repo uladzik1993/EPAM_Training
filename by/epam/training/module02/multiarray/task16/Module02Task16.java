@@ -2,7 +2,7 @@ package by.epam.training.module02.multiarray.task16;
 
 //Магическим квадратом порядка n называется квадратная матрица размера nxn, составленная из чисел 1, 2, 3,
 //..., 2 n так, что суммы по каждому столбцу, каждой строке и каждой из двух больших диагоналей равны между
-//собой. Построить такой квадрат. Пример магического квадрата порядка 3:
+//собой. Построить такой квадрат.
 
 import by.epam.training.module02.multiarray.task13.Tool;
 
@@ -32,12 +32,8 @@ public class Module02Task16 {
             for (int str = 0; str < magicCube.length; str++) {
                 sumDiag2 += magicCube[str][magicCube.length - 1 - str];
             }
-            if (sumDiag1 == sumDiag2) {
-                if (sumDiag1 == sumColumn) {
-                    if (sumDiag2 == sumColumn) {
-                        result = false;
-                    }
-                }
+            if ((sumColumn == sumDiag1) == (sumColumn == sumDiag2)) {
+                result = false;
             }
         }
         System.out.println();

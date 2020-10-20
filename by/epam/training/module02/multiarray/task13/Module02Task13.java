@@ -8,7 +8,7 @@ public class Module02Task13 {
         int l = 5;
         int[][] matrix = new int[h][l];
 
-        System.out.println("Массив дло сортировки: ");
+        System.out.println("Массив до сортировки: ");
         Tool.randArray(matrix);
         Tool.printArray(matrix);
         System.out.println();

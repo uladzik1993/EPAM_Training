@@ -8,37 +8,34 @@ import by.epam.training.module02.multiarray.task13.Tool;
 
 public class Module02Task16 {
     public static void main(String[] args) {
-        int n = 4;
-        int sumColumn = 0;
-        int sumDiag1 = 0;
-        int sumDiag2 = 0;
-        boolean result = true;
-        int[][] magicCube = new int[n][n];
-        Tool.randArray(magicCube);
-        Tool.printArray(magicCube);
+        int n = 3;
+        int[][] magicSquare = new int[n][n];
+        int i = n / 2;
+        int j = n - 1;
 
-
-        while (result) {
-            Tool.randArray(magicCube);
-
-            for (int str = 0; str < magicCube.length; str++) {
-                sumColumn += magicCube[str][0];
+        for (int num = 1; num <= n * n; ) {
+            if (i == -1 && j == n) {
+                j = n - 2;
+                i = 0;
+            } else {
+                if (j == n)
+                    j = 0;
+                if (i < 0)
+                    i = n - 1;
             }
-
-            for (int str = 0; str < magicCube.length; str++) {
-                sumDiag1 += magicCube[str][str];
-            }
-
-            for (int str = 0; str < magicCube.length; str++) {
-                sumDiag2 += magicCube[str][magicCube.length - 1 - str];
-            }
-            if ((sumColumn == sumDiag1) && (sumColumn == sumDiag2)) {
-                result = false; }
+            if (magicSquare[i][j] != 0) {
+                j -= 2;
+                i++;
+                continue;
+            } else
+                magicSquare[i][j] = num++;
+            j++;
+            i--;
         }
-        System.out.println();
-        Tool.printArray(magicCube);
-        System.out.println();
-        System.out.println(sumColumn + " " + sumDiag1 + " " + sumDiag2);
-        System.out.println(result);
+
+        System.out.println("Размер магического квадрата " + n + ":");
+        System.out.println("Сумма строк или столбца " + n * (n * n + 1) / 2 + ":");
+
+        Tool.printArray(magicSquare);
+        }
     }
-}

@@ -13,17 +13,17 @@ public class Module02Task01 {
         int[] hulk = new int[]{6, 5, 3, 1, 2, 9};
         int[] thor = new int[]{7, 3, 0, 6};
 
-        int[] sum = new int[(hulk.length + thor.length)];
+        int[] tmp = new int[(hulk.length + thor.length)];
 
-        for (int i = 0; i < sum.length; i++) {
+        for (int i = 0; i < tmp.length; i++) {
             if ((k) > i) {
-                sum[i] = hulk[i];
+                tmp[i] = hulk[i];
             } else if (count < k) {
-                sum[i] = thor[count];
+                tmp[i] = thor[count];
                 count++;
             } else
-                sum[i] = hulk[i - k - 1];
+                tmp[i] = hulk[i - k - 1];
         }
-        System.out.println(Arrays.toString(sum));
+        System.out.println(Arrays.toString(tmp));
     }
 }

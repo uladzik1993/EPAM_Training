@@ -8,13 +8,16 @@ package by.epam.training.module02.sorting.task03;
 import java.util.Arrays;
 
 public class Module02Task03 {
+
     public static void main(String[] args) {
+
         int[] newArray = new int[]{3, 8, 12, 15, 18, 22};
         sorting(newArray);
         System.out.println(Arrays.toString(newArray));
     }
 
     public static void sorting(int[] array) {
+
         int tmp = 0;
 
         for (int count = 0; count < array.length; count++) {

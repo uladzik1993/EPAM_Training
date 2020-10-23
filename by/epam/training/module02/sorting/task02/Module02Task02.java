@@ -8,7 +8,9 @@ package by.epam.training.module02.sorting.task02;
 import java.util.Arrays;
 
 public class Module02Task02 {
+
     public static void main(String[] args) {
+
         int count = 0;
         int[] a = new int[]{1, 3, 5, 7, 9};
         int[] b = new int[]{0, 2, 4, 6, 8};

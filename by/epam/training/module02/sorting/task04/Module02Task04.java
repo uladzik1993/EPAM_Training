@@ -18,7 +18,7 @@ public class Module02Task04 {
         while (result) {
 
             result = false;
-            
+
             for (int num = 1; num < cat.length; num++) {
                 count++;
                 if (cat[num] < cat[num - 1]) {

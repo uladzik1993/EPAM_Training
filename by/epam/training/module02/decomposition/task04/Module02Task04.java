@@ -20,7 +20,7 @@ public class Module02Task04 {
         for (int i = 0; i < y.length; i++) {
             System.out.printf("(%3d, %3d)\n", x[i], y[i]);
         }
-        
+
         int[] index = distanceMax(x, y);
         System.out.printf("Между точками (%3d, %3d) (%3d, %3d) максимальное расстояние",
                 x[index[0]], y[index[0]], x[index[1]], y[index[1]]);
@@ -47,5 +47,4 @@ public class Module02Task04 {
         d = Math.sqrt(Math.pow((x1 - x2), 2) + Math.pow((y1 - y2), 2));
         return d;
     }
-
 }

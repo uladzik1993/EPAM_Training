@@ -11,7 +11,7 @@ public class Module02Task03 {
     }
 
     public static double areaTriangle(int a) {
-        return (Math.sqrt(3) / 4) * Math.pow(a, a);
+        return (Math.sqrt(3) / 4) * Math.pow(a, 2);
 
     }
 }

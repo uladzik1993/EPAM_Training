@@ -11,8 +11,6 @@ public class Module02Task10 {
     public static void main(String[] args) {
 
         int number = 10;
-        int count = 0;
-        int temp = number;
         int[] array = new int[number];
 
         for (int i = 0; i < number; i++) {

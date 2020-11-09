@@ -8,20 +8,18 @@ public class Module02Task17 {
         int number = 89;
 
         count(number);
-
-
     }
-    public static void count (int num) {
+
+    public static void count(int num) {
         int count = 0;
 
-        while (num!=0) {
-            int a=num%10;
-            int b=num/10;
-            num = num - (a+b);
+        while (num != 0) {
+            int a = num % 10;
+            int b = num / 10;
+            num = num - (a + b);
             count++;
 
         }
         System.out.println("Колличество отниманий сумм цифр числа: " + count);
-
     }
 }

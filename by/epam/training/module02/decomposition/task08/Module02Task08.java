@@ -17,13 +17,11 @@ public class Module02Task08 {
             System.out.print(d[i]+ " ");
         }
 
-        System.out.println();
-        System.out.println("Сумма элементов от " + k + " до " + m + " равна: ");
-
         for (int i=k-1;i<m;i++) {
             sum += d[i];
         }
-        System.out.println(sum);
+        System.out.println();
+        System.out.println("Сумма элементов от " + k + " до " + m + " равна: " + sum);
 
 
     }

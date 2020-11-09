@@ -6,24 +6,35 @@ package by.epam.training.module02.decomposition.task08;
 
 public class Module02Task08 {
     public static void main(String[] args) {
-        
+
         int k = 4;
         int m = 7;
         int[] d = new int[10];
-        int sum = 0;
 
+        randArray(d);
         System.out.print("Задан массив: ");
+        printArray(d);
+        printSum(k, m, d);
+    }
 
-        for (int i = 0; i < d.length; i++) {
-            d[i] = (int) (Math.random() * 100);
-            System.out.print(d[i] + " ");
+    public static void randArray(int[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = (int) (Math.random() * 100);
         }
+    }
 
-        for (int i = k - 1; i < m; i++) {
-            sum += d[i];
+    public static void printArray(int[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + " ");
         }
+    }
 
+    public static void printSum(int start, int end, int[] arr) {
+        int sum = 0;
+        for (int i = start - 1; i < end; i++) {
+            sum += arr[i];
+        }
         System.out.println();
-        System.out.println("Сумма элементов от " + k + " до " + m + " равна: " + sum);
+        System.out.println("Сумма элементов от " + start + " до " + end + " равна: " + sum);
     }
 }

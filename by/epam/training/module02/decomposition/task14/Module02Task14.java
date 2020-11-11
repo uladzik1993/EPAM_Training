@@ -10,11 +10,11 @@ public class Module02Task14 {
     public static void main(String[] args) {
         int k = 1000;
 
-        searchAmstrong(k);
+        checkIfAmstrong(k);
 
     }
 
-    public static void searchAmstrong(int userNumber) {
+    private static void checkIfAmstrong(int userNumber) {
         int remainder = 0;
         int originalNumber = userNumber;
         for (int i = 1; i <= userNumber; i++) {

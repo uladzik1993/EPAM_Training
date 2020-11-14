@@ -9,14 +9,9 @@ public class Module02Task16 {
     public static void main(String[] args) {
         System.out.println("Начнем поиск чисел содержащих только не четные числа!");
         int limit = enter("Введите ограничение для поиска:");
-        int sum = 0;
-        int evenNumber = 0;
+
         System.out.println("Сумма чисел содержащих только нечетные цифры равна: " + sumOfUnevenNumbers(limit));
         System.out.println("Колличество четных цифр в найденной сумме: " + countEven(sumOfUnevenNumbers(limit)));
-    }
-
-    public static void sumOfUneven(int userLimit) {
-
     }
 
     static boolean checkUneven(int number) {
@@ -47,7 +42,6 @@ public class Module02Task16 {
                 }
             }
         }
-
         return count;
     }
 
@@ -68,6 +62,7 @@ public class Module02Task16 {
         }
         return sum;
     }
+
     public static int enter(String massage) {
         System.out.println(massage);
         Scanner scanner = new Scanner(System.in);

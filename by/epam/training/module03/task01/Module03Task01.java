@@ -36,9 +36,7 @@ public class Module03Task01 {
             char ch = str.charAt(i);
             if (Character.isUpperCase(ch)) {
                 result = result + '_';
-                result
-                        = result
-                        + Character.toLowerCase(ch);
+                result = result + Character.toLowerCase(ch);
             } else {
                 result = result + ch;
             }

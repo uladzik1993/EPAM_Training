@@ -19,7 +19,7 @@ public class Module05Task05 {
 
     }
 
-    public static void insertSort(int[] array) {
+    private static void insertSort(int[] array) {
         for (int left = 0; left < array.length; left++) {
             int value = array[left];
             int i = left - 1;

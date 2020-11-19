@@ -17,7 +17,7 @@ public class Module02Task14 {
         }
         printArray(matrix);
     }
-        public static void printArray(int[][] array) {
+        private static void printArray(int[][] array) {
             for (int i = 0; i < array.length; i++) {
                 for (int j = 0; j < array.length; j++) {
                     System.out.print(array[i][j] + "\t");

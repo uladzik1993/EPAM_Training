@@ -21,13 +21,13 @@ public class Module02Task06 {
         printArray(array);
     }
 
-    public static void printArray(int[] array) {
+    private static void printArray(int[] array) {
         for (int i = 0; i < array.length; i++) {
             System.out.print(array[i] + " ");
         }
     }
 
-    public static void randArray(int[] arr) {
+    private static void randArray(int[] arr) {
         for (int i = 0; i < arr.length; i++) {
             arr[i] = (int) (Math.random() * 100);
         }

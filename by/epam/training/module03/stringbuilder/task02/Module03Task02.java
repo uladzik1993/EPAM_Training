@@ -13,7 +13,6 @@ public class Module03Task02 {
     }
 
     private static String fixThis(String str) {
-        int tmp = 0;
         String tmpStr = "";
         for (int i = 0; i < str.length(); i++) {
             if (str.charAt(i) == 'a') {

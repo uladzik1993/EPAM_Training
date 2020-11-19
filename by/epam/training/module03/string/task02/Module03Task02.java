@@ -1,4 +1,4 @@
-package by.epam.training.module03.task02;
+package by.epam.training.module03.string.task02;
 
 // Замените в строке все вхождения 'word' на 'letter'.
 

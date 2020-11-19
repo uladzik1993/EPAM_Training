@@ -1,8 +1,6 @@
-package by.epam.training.module03.task04;
+package by.epam.training.module03.string.task04;
 
 // В строке найти количество чисел.
-
-import java.util.Arrays;
 
 public class Module03Task04 {
 

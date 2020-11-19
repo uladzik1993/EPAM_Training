@@ -1,4 +1,4 @@
-package by.epam.training.module03.task03;
+package by.epam.training.module03.string.task03;
 
 // В строке найти количество цифр.
 

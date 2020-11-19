@@ -1,4 +1,4 @@
-package by.epam.training.module03.task01;
+package by.epam.training.module03.string.task01;
 
 // Дан массив названий переменных в camelCase. Преобразовать названия в snake_case.
 

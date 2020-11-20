@@ -8,11 +8,10 @@ public class Module03Task01 {
         String text = "Меня   зовут Ник,    мой лучший     друг               Майк.";
 
         System.out.println(text);
-        System.out.println("Наибольшее колличество подряд идущих пробелов: " + countingGaps(text));
+        System.out.println("Наибольшее колличество подряд идущих пробелов: " + countGaps(text));
     }
 
-    private static int countingGaps(String str) {
-        String tmp = " ";
+    private static int countGaps(String str) {
         int countMax = 0;
 
         for (int i = 0; i < str.length(); i++) {

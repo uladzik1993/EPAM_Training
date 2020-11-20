@@ -13,8 +13,8 @@ public class Module03Task02 {
 
     }
 
-    private static String enter(String massage) {
-        System.out.println(massage);
+    private static String enter(String message) {
+        System.out.println(message);
         Scanner scanner = new Scanner(System.in);
         return scanner.next();
     }

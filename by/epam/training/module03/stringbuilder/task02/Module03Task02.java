@@ -9,16 +9,17 @@ public class Module03Task02 {
 
         System.out.println("Ваш текст: " + text);
         System.out.println();
-        System.out.println("Ваш текст после исправления: " + fixThis(text));
+        System.out.println("Ваш текст после исправления: " + insertBAfterA(text));
     }
 
-    private static String fixThis(String str) {
-        String tmpStr = "";
+    private static String insertBAfterA(String str) {
+        StringBuilder tmpStr = new StringBuilder();
+
         for (int i = 0; i < str.length(); i++) {
             if (str.charAt(i) == 'a') {
-                tmpStr += str.charAt(i) + "b";
-            } else tmpStr += str.charAt(i);
+                tmpStr.append(str.charAt(i)).append("b");
+            } else tmpStr.append(str.charAt(i));
         }
-        return tmpStr;
+        return tmpStr.toString();
     }
 }

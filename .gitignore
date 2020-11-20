@@ -1,0 +1,15 @@
+**/target
+**/.settings
+**/.project
+**/.classpath
+**/logs
+**/log
+**/unitils-dev-local.properties
+**/dbxsd
+**/*.iml
+**/*.iws
+**/*.jpr
+**/.idea
+/config-templates/.apply-ruby-template.rb
+/.apply-ruby-template.rb
+/src/test/releasePerform/unitils-dev-local.properties

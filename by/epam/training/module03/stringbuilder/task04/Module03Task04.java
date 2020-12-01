@@ -2,7 +2,6 @@ package by.epam.training.module03.stringbuilder.task04;
 
 // С помощью функции копирования и операции конкатенации составить из частей слова “информатика” слово “торт”.
 
-import java.util.Arrays;
 
 public class Module03Task04 {
     public static void main(String[] args) {

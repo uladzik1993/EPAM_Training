@@ -9,8 +9,7 @@ public class Module03Task09 {
 
     public static void main(String[] args) {
         String text = enter("Начни вводить текст: ");
-
-
+        count(text);
     }
 
     private static String enter(String massage) {
@@ -22,4 +21,15 @@ public class Module03Task09 {
         }
         return massage = sb.toString();
     }
+
+    private static void count(String str) {
+        int upperCase = 0;
+        int lowerCase = 0;
+        for (int i = 0; i < str.length(); i++) {
+            if ((str.charAt(i) >= 'a') & (str.charAt(i) <= 'z')) lowerCase++;
+            if ((str.charAt(i) >= 'A') & (str.charAt(i) <= 'Z')) upperCase++;
+        }
+        System.out.printf("Всего %d заглавных букв и %d прописных.\n", upperCase, lowerCase);
+    }
 }
+

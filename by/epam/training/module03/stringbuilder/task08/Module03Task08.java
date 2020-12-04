@@ -7,15 +7,10 @@ package by.epam.training.module03.stringbuilder.task08;
 import java.util.Scanner;
 
 public class Module03Task08 {
+
     public static void main(String[] args) {
         String words = enter();
         viewLongerWord(words);
-    }
-
-    private static void viewLongerWord(String str) {
-        String[] strArray = creatArray(str);
-        str = searchLong(strArray);
-        System.out.println(str);
     }
 
     private static String enter() {
@@ -28,26 +23,33 @@ public class Module03Task08 {
         return sb.toString();
     }
 
-    private static String[] creatArray(String str) {
+    private static void viewLongerWord(String words) {
+        String[] wordsArray = createArray(words);
+        String longest = searchLongest(wordsArray); // не переназначай параметры метода, создавай новую переменную
+        System.out.println(longest);
+    }
+
+    private static String[] createArray(String str) {
         return str.split(" ");
     }
 
-    private static String searchLong(String[] arr) {
-        String longer = null;
+    private static String searchLongest(String[] arr) {
+        String longest = null;
         int size = 0;
         int count = 0;
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i].length() >= size) {
-                if (arr[i].length() == size) {
+
+        for (String s : arr) {
+            if (s.length() >= size) {
+                if (s.length() == size) {
                     count += 1;
                 }
-                longer = arr[i];
-                size = arr[i].length();
+                longest = s;
+                size = s.length();
             }
         }
         if (count > 0) {
-            longer = "Два и более длинных слова";
+            longest = "Два и более длинных слова";
         }
-        return longer;
+        return longest;
     }
 }

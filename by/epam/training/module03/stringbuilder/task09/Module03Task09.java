@@ -8,18 +8,18 @@ import java.util.Scanner;
 public class Module03Task09 {
 
     public static void main(String[] args) {
-        String text = enter("Начни вводить текст: ");
+        String text = enter();
         count(text);
     }
 
-    private static String enter(String massage) {
-        System.out.println(massage);
+    private static String enter() {
+        System.out.println("Начни вводить текст: ");
         Scanner scanner = new Scanner(System.in);
         StringBuilder sb = new StringBuilder();
         if (scanner.hasNext()) {
             sb.append(scanner.nextLine());
         }
-        return massage = sb.toString();
+        return sb.toString();
     }
 
     private static void count(String str) {

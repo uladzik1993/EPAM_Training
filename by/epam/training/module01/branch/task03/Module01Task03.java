@@ -18,15 +18,3 @@ public class Module01Task03 {
         } else System.out.println("Не на одной линии");
     }
 }
-
-/*
-        int[] a = {x1, y1};
-        int[] b = {x2, y2};
-        int[] c = {x3, y3};
-
-        if (x1 == x2 & x1==x2 & x1 == x3) {
-            System.out.println("На одной линии");
-        } else if (y1 == y2 & y1==y2 & y1 == y3) {
-            System.out.println("На одной линии");
-        } else System.out.println("Не на одной линии");
-    } */

@@ -9,10 +9,8 @@ public class Module03Task03 {
     }
 
     private static String turnOver(String str) {
-        StringBuffer sb2 = new StringBuffer(str);
-        StringBuffer tmp = sb2.reverse();
-        str = sb2.toString();
-        return str;
+        StringBuilder sb2 = new StringBuilder(str);
+        return sb2.reverse().toString();
     }
 
     private static boolean checkPalindrome(String str) {
@@ -21,6 +19,7 @@ public class Module03Task03 {
         for (int i = 0; i < str.length(); i++) {
             if (str.charAt(i) != temp.charAt(i)) {
                 result = false;
+                break;
             }
         }
         return result;

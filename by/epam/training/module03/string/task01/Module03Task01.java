@@ -12,39 +12,39 @@ public class Module03Task01 {
         System.out.println(" ");
         System.out.println(" ");
 
-        transform(pack);
+        transformIntoSnakeCase(pack);
 
         System.out.println("Преобразую его в snake_case: ");
         printArray(pack);
     }
 
 
-    private static void transform(String[] str) {
+    private static void transformIntoSnakeCase(String[] str) {
         for (int i = 0; i < str.length; i++) {
             str[i] = camelToSnake(str[i]);
         }
     }
 
     private static String camelToSnake(String str) {
-        String result = "";
+        StringBuilder result = new StringBuilder();
         char c = str.charAt(0);
-        result = result + Character.toLowerCase(c);
+        result.append(Character.toLowerCase(c));
 
         for (int i = 1; i < str.length(); i++) {
             char ch = str.charAt(i);
             if (Character.isUpperCase(ch)) {
-                result = result + '_';
-                result = result + Character.toLowerCase(ch);
+                result.append('_');
+                result.append(Character.toLowerCase(ch));
             } else {
-                result = result + ch;
+                result.append(ch);
             }
         }
-        return result;
+        return result.toString();
     }
 
     public static void printArray(String[] array) {
-        for (int i = 0; i < array.length; i++) {
-            System.out.print(array[i] + " ");
+        for (String s : array) {
+            System.out.print(s + " ");
         }
     }
 }

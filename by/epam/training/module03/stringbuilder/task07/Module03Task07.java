@@ -7,39 +7,38 @@ import java.util.Scanner;
 
 public class Module03Task07 {
     public static void main(String[] args) {
-        String iSay = enter("Напишите что нибудь");
+        String iSay = enter();
         System.out.println(fixThis(iSay));
 
     }
 
-    private static String enter(String massage) {
-        System.out.println(massage);
+    private static String enter() {
+        System.out.println("Напишите что нибудь");
+
         Scanner scanner = new Scanner(System.in);
         StringBuilder sb = new StringBuilder();
         if (scanner.hasNext()) {
             sb.append(scanner.nextLine());
         }
-        return massage = sb.toString();
-    }
-
-    private static String deleteSpace(String str) {
-        str = str.replaceAll("\\s+", "");
-        return str;
-    }
-
-    private static String deleteDoubleWords(String str) {
-        StringBuilder noDupes = new StringBuilder();
-        for (int i = 0; i < str.length(); i++) {
-            String si = str.substring(i, i + 1);
-            if (noDupes.indexOf(si) == -1) {
-                noDupes.append(si);
-            }
-        }
-        return noDupes.toString();
+        return sb.toString();
     }
 
     private static String fixThis(String str) {
-        str = deleteDoubleWords(deleteSpace(str));
-        return str;
+        return deleteDoubleWords(deleteSpace(str));
+    }
+
+    private static String deleteSpace(String str) {
+        return str.replaceAll("\\s+", "");
+    }
+
+    private static String deleteDoubleWords(String str) {
+        StringBuilder noDuplicates = new StringBuilder();
+        for (int i = 0; i < str.length(); i++) {
+            String si = str.substring(i, i + 1);
+            if (noDuplicates.indexOf(si) == -1) {
+                noDuplicates.append(si);
+            }
+        }
+        return noDuplicates.toString();
     }
 }

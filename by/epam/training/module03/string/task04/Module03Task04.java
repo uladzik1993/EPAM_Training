@@ -8,8 +8,7 @@ public class Module03Task04 {
         String iSay = "My car will need 30 liters of fuel to travel 250 kilometers, which will cost $ 22.";
 
         System.out.println(iSay);
-        System.out.println();
-        System.out.println("В данном предложении найдено " + countNumbers(iSay) + " числа.");
+        System.out.println("\nВ данном предложении найдено " + countNumbers(iSay) + " числа.");
     }
 
     private static int countNumbers(String str) {

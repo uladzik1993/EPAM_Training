@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class Module03Task08 {
     public static void main(String[] args) {
-        String words = enter();
+        String words = enter("Введите несколько слов через пробел, а я выберу самое длиинное");
         viewLongerWord(words);
     }
 
@@ -18,8 +18,8 @@ public class Module03Task08 {
         System.out.println(str);
     }
 
-    private static String enter() {
-        System.out.println("Введите несколько слов через пробел, а я выберу самое длиинное");
+    private static String enter(String massage) {
+        System.out.println(massage);
         Scanner scanner = new Scanner(System.in);
         StringBuilder sb = new StringBuilder();
         if (scanner.hasNext()) {
@@ -29,7 +29,8 @@ public class Module03Task08 {
     }
 
     private static String[] creatArray(String str) {
-        return str.split(" ");
+        String[] peopleArray = str.split(" ");
+        return peopleArray;
     }
 
     private static String searchLong(String[] arr) {

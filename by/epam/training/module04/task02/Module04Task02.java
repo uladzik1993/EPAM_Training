@@ -7,6 +7,7 @@ package by.epam.training.module04.task02;
 
 public class Module04Task02 {
     public static void main(String[] args) {
-
+        Test2 hero = new Test2(21, 34);
+        System.out.println(hero.getTwo());
     }
 }

@@ -86,10 +86,9 @@ public class Module04Task03 {
         printexcellentStudent(university);
 
 
-
-
     }
-    public static void printexcellentStudent (ArrayList<Student> strList) {
+
+    public static void printexcellentStudent(ArrayList<Student> strList) {
 
         for (int y = 0; y < strList.size(); y++) {
             if (excellentStudent(strList.get(y).getMark())) {
@@ -97,7 +96,6 @@ public class Module04Task03 {
                 System.out.println("Group number: " + strList.get(y).getGroup());
             }
         }
-
     }
 
 

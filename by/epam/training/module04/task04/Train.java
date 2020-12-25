@@ -5,24 +5,18 @@ public class Train {
     private int trainNumber;
     private String departureTime;
 
-    public void setDestination(String destination) {
+    public void setTrain(String destination, int trainNumber, String departureTime) {
         this.destination = destination;
+        this.trainNumber = trainNumber;
+        this.departureTime = departureTime;
     }
 
     public String getDestination() {
         return destination;
     }
 
-    public void setTrainNumber (int trainNumber) {
-        this.trainNumber = trainNumber;
-    }
-
     public int getTrainNumber() {
         return trainNumber;
-    }
-
-    public void setDepartureTime(String departureTime) {
-        this.departureTime = departureTime;
     }
 
     public String getDepartureTime() {

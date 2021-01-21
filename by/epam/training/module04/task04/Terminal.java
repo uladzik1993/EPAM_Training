@@ -8,31 +8,44 @@ package by.epam.training.module04.task04;
 // причем поезда с одинаковыми пунктами назначения должны быть упорядочены по времени отправления.
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
-
-public class Module04Task04 {
+public class Terminal {
 
     public static void main(String[] args) {
+
         ArrayList<Train> trains = new ArrayList<>();
 
-        Train one = new Train();
-        one.setTrain("Moscov", 723, "11:30");
+        Train one = buildTrain("Moscov", 723, "11:30");
         trains.add(one);
 
-        Train two = new Train();
-        two.setTrain("Minsk", 324, "8:30");
+        Train two = buildTrain("Minsk", 324, "8:30");
         trains.add(two);
 
-        Train three = new Train();
-        three.setTrain("Minsk", 101, "10:00");
+        Train three = buildTrain("Minsk", 101, "10:00");
         trains.add(three);
 
-        Train four = new Train();
-        four.setTrain("Brest", 243, "15:40");
+        Train four = buildTrain("Brest", 243, "15:40");
         trains.add(four);
 
-        Train five = new Train();
-        five.setTrain("Mohilev", 87, "13:45");
+        Train five = buildTrain("Mohilev", 87, "13:45");
         trains.add(five);
+
+        System.out.println(trains.get(4).getDestination());
+
+
     }
+
+    private static Train buildTrain(String destination, int trainNumber, String departureTime) {
+        Train train = new Train();
+        train.setDestination(destination);
+        train.setTrainNumber(trainNumber);
+        train.setDepartureTime(departureTime);
+        return train;
+    }
+
+
 }
+

@@ -16,7 +16,6 @@ public class Counter {
     public void setRandom(int range) {
         Random rand = new Random();
         count = rand.nextInt(range);
-        System.out.println(count);
     }
 
     public int getCount() {

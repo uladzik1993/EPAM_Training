@@ -1,5 +1,8 @@
 package by.epam.training.module04.text;
 
+// Создать объект класса Текст, используя классы Предложение, Слово.
+// Методы: дополнить текст, вывести на консоль текст, заголовок текста.
+
 import by.epam.training.module04.text.model.Text;
 import by.epam.training.module04.text.service.TextService;
 

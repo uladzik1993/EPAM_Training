@@ -21,7 +21,7 @@ public class Clock {
         if (hour >= 0 && hour < 24) {
             this.hour = hour;
         } else {
-            System.out.println("Не допустимое значение.");
+            System.out.println("Недопустимое значение.");
             this.hour = 0;
         }
     }
@@ -30,7 +30,7 @@ public class Clock {
         if (min >= 0 && min < 60) {
             this.min = min;
         } else {
-            System.out.println("Не допустимое значение.");
+            System.out.println("Недопустимое значение.");
             this.min = 0;
         }
     }
@@ -39,7 +39,7 @@ public class Clock {
         if (sec >= 0 && sec < 60) {
             this.sec = sec;
         } else {
-            System.out.println("Не допустимое значение.");
+            System.out.println("Недопустимое значение.");
             this.sec = 0;
         }
     }

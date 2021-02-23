@@ -8,7 +8,7 @@ package by.epam.training.module04.task06;
 
 public class Runner {
     public static void main(String[] args) {
-        Clock rolex = new Clock();
+        Clock rolex = new Clock(23,30,22);
         rolex.setHour(15);
         rolex.setMin(23);
         rolex.setSec(30);

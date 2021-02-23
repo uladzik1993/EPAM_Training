@@ -1,15 +1,9 @@
 package by.epam.training.module04.task06;
 
 public class Clock {
-    private int hour;
-    private int min;
-    private int sec;
-
-    public Clock() {
-        hour = 12;
-        min = 30;
-        sec = 19;
-    }
+    private int hour = 0;
+    private int min = 0;
+    private int sec = 0;
 
     public Clock(int hour, int min, int sec) {
         this.hour = hour;

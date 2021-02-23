@@ -2,32 +2,39 @@ package by.epam.training.module04.task07;
 
 public class Triangle {
 
-    private int ab = 0;
-    private int bc = 0;
-    private int cd = 0;
+    private Point a, b, c;
 
-    public Triangle(int ab, int bc, int cd) {
-        if (ab != 0 && bc != 0 && cd != 0) {
-            this.ab = ab;
-            this.bc = bc;
-            this.cd = cd;
-        } else System.out.println("Недопустимое значение!");
-
-        if (ab == bc && bc == cd && cd == ab) {
-            System.out.println("Вы создали равносторонний треугольник.");
-        }
+    public Triangle(Point a_, Point b_, Point c_) {
+        a = a_;
+        b = b_;
+        c = c_;
     }
 
-    public double areaСalc() {
-        double p = (ab + bc + cd) / 2;
-        return Math.sqrt(p * (p - ab) * (p - bc) * (p - cd));
+    public double square() {
+        double ab = Point.distance(a, b);
+        double bc = Point.distance(b, c);
+        double ac = Point.distance(a, c);
+        double p = (ab + bc + ac) / 2;
+        return Math.sqrt(p * (p - ab) * (p - bc) * (p - ac));
     }
 
-    public int perimeterCalc() {
-        return ab + bc + cd;
+    public double perimeter() {
+        double ab = Point.distance(a, b);
+        double bc = Point.distance(b, c);
+        double ac = Point.distance(a, c);
+        return ab + bc + ac;
     }
 
-    public int findMedian () {
-        return 0;
+    public Point median_crossing() {
+        return new Point((a.x + b.x + c.x) / 3, (a.y + b.y + c.y) / 3);
+    }
+
+    public void print() {
+        System.out.print("A: ");
+        a.print();
+        System.out.print("B: ");
+        b.print();
+        System.out.print("C: ");
+        c.print();
     }
 }

@@ -41,5 +41,4 @@ public class Student {
     public int[] getMark() {
         return mark;
     }
-
 }

@@ -16,36 +16,29 @@ public class Terminal {
 
     public static void main(String[] args) {
 
-        ArrayList<Train> trains = new ArrayList<>();
+        int n = 5;
+        Train trains[] = new Train[n];
 
-        Train one = buildTrain("Moscov", 723, "11:30");
-        trains.add(one);
+        trains[0] = new Train("Moscov", 723, "11:30");
+        trains[1] = new Train("Minsk", 324, "8:30");
+        trains[2] = new Train("Minsk", 101, "10:00");
+        trains[3] = new Train("Brest", 243, "15:40");
+        trains[4] = new Train("Mohilev", 87, "13:45");
 
-        Train two = buildTrain("Minsk", 324, "8:30");
-        trains.add(two);
+        Arrays.sort(trains, new Train.sortByNumber());
+        for (int i = 0; i < trains.length; ++i) {
+            System.out.print(i + " : " + " ");
+            trains[i].print();
+        }
 
-        Train three = buildTrain("Minsk", 101, "10:00");
-        trains.add(three);
-
-        Train four = buildTrain("Brest", 243, "15:40");
-        trains.add(four);
-
-        Train five = buildTrain("Mohilev", 87, "13:45");
-        trains.add(five);
-
-        System.out.println(trains.get(4).getDestination());
+        System.out.println("\n");
 
 
+        Arrays.sort(trains, new Train.sortByDestinationAndTime());
+
+        for (int i = 0; i < trains.length; ++i) {
+            System.out.print((i + 1) + " : " + " ");
+            trains[i].print();
+        }
     }
-
-    private static Train buildTrain(String destination, int trainNumber, String departureTime) {
-        Train train = new Train();
-        train.setDestination(destination);
-        train.setTrainNumber(trainNumber);
-        train.setDepartureTime(departureTime);
-        return train;
-    }
-
-
 }
-

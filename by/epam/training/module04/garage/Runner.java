@@ -5,10 +5,13 @@ package by.epam.training.module04.garage;
 
 public class Runner {
     public static void main(String[] args) {
-        Engine test = new Engine(1, 200);
-        Wheel testWheel = new Wheel("Nokia",17, Wheel.Type.Summer);
+        Car peugeot = new Car("Peugeot", 5, new Engine(1, 136),
+                new Wheel[]{new Wheel("Pirelli", 17, Wheel.Type.Summer)}, 0);
 
-        System.out.println(test.toString());
-        System.out.println(testWheel.toString());
+        System.out.println(peugeot.toString());
+
+        peugeot.addFuel(60);
+        peugeot.move();
+        peugeot.move();
     }
 }

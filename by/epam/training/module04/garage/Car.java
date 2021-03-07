@@ -9,8 +9,8 @@ public class Car {
     private double consumption;
     private double fuel;
 
-    public  Car (String brand, double consumption, Engine engine,
-                 Wheel wheels[], double fuel) {
+    public Car(String brand, double consumption, Engine engine,
+               Wheel wheels[], double fuel) {
         this.brand = brand;
         this.consumption = consumption;
         this.engine = engine;
@@ -22,12 +22,25 @@ public class Car {
     public String toString() {
         String text = "";
 
-        text += brand + engine.toString() + ";" + consumption + "L/100km { ";
+        text += "\n Марка авто: " + brand + engine.toString() + "; \n Расход топлива: " + consumption +
+                " L/100km \n Колеса: " + wheels[0].toString();
 
-        for (int i = 0; i<4; i++) {
-            text+=wheels[i].toString() + " ";
-        }
-
-        return text + ")";
+        return text;
     }
+
+    public void move () {
+        if (fuel <= 0) {
+            System.out.println("Топливо закончилось");
+            return;
+        }
+        double distance = fuel / consumption;
+        System.out.println("Машина проехала " + distance * 100 + "км.");
+        fuel = 0;
+    }
+
+    public void addFuel (double value) {
+        fuel += value;
+        System.out.println("Машина заправленна, можно ехать");
+    }
+
 }

@@ -4,7 +4,7 @@ public class Engine {
     int id;
     double power;
 
-    public Engine (int id, double power) {
+    public Engine(int id, double power) {
         this.id = id;
         this.power = power;
     }

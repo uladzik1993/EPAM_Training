@@ -8,7 +8,7 @@ public class Runner {
         Car peugeot = new Car("Peugeot", 5, new Engine(1, 136),
                 new Wheel[]{new Wheel("Pirelli", 17, Wheel.Type.Summer)}, 0);
 
-        System.out.println(peugeot.toString());
+        peugeot.viewInfo();
 
         peugeot.addFuel(60);
         peugeot.move();

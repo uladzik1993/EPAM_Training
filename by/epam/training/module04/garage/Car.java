@@ -30,17 +30,21 @@ public class Car {
 
     public void move () {
         if (fuel <= 0) {
-            System.out.println("Топливо закончилось");
+            System.out.println("\n Топливо закончилось");
             return;
         }
         double distance = fuel / consumption;
-        System.out.println("Машина проехала " + distance * 100 + "км.");
+        System.out.println("\n Машина проехала " + distance * 100 + "км.");
         fuel = 0;
     }
 
     public void addFuel (double value) {
         fuel += value;
-        System.out.println("Машина заправленна, можно ехать");
+        System.out.println("\n Машина заправленна, можно ехать");
+    }
+
+    public void viewInfo() {
+        System.out.println(toString());
     }
 
 }

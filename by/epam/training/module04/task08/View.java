@@ -1,7 +1,7 @@
 package by.epam.training.module04.task08;
 
 public class View {
-    public static void printSortedBySurname (Customer[] list) {
+    public static void printSortedBySurname(Customer[] list) {
         System.out.println("ФИО клиентов в алфавитном порядке");
 
         list = Logic.sortBySurname(list);
@@ -12,7 +12,7 @@ public class View {
         }
     }
 
-    public static void ptintSortedByCardNo (Customer[] list) {
+    public static void ptintSortedByCardNo(Customer[] list) {
         String str;
         System.out.println("ФИО клиентов, номера которых находятся в диапазоне от " +
                 "2000000 до 3000000: ");

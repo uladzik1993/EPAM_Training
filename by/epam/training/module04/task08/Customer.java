@@ -104,41 +104,37 @@ public class Customer {
     public boolean equals(Object obj) {
         if (this == obj)
             return true;
-            if (obj == null)
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Customer other = (Customer) obj;
+        if (address == null) {
+            if (other.address != null)
                 return false;
-            if (getClass() != obj.getClass())
+        } else if (!address.equals(other.address))
+            return false;
+        if (accountNumber != other.accountNumber)
+            return false;
+        if (cardNumber != other.cardNumber)
+            return false;
+        if (id != other.id)
+            return false;
+        if (name == null) {
+            if (other.name != null)
                 return false;
-            Customer  other = (Customer) obj;
-            if (address == null) {
-                if (other.address != null)
-                    return false;
-        }
-            else if (!address.equals(other.address))
+        } else if (!name.equals(other.name))
+            return false;
+        if (patronymic == null) {
+            if (other.patronymic != null)
                 return false;
-            if (accountNumber != other.accountNumber)
+        } else if (!patronymic.equals(other.patronymic))
+            return false;
+        if (surname == null) {
+            if (other.surname != null)
                 return false;
-            if (cardNumber != other.cardNumber)
-                return false;
-            if (id != other.id)
-                return false;
-            if (name == null) {
-                if (other.name != null)
-                    return false;
-            }
-                else if (!name.equals(other.name))
-                    return false;
-                if (patronymic == null) {
-                    if (other.patronymic != null)
-                        return false;
-                }
-                    else if (!patronymic.equals(other.patronymic))
-                        return false;
-                    if (surname == null){
-                        if (other.surname != null)
-                            return false;
-                    }
-                    else if (!surname.equals(other.surname))
-                        return false;
-            return true;
+        } else if (!surname.equals(other.surname))
+            return false;
+        return true;
     }
 }

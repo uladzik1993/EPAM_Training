@@ -3,7 +3,7 @@ package by.epam.training.module04.task08;
 import java.util.Arrays;
 
 public class CustomerList {
-    private  Customer[] customerList;
+    private Customer[] customerList;
     private int numberCustomer;
 
     public CustomerList() {

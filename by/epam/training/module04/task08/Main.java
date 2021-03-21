@@ -10,10 +10,12 @@ package by.epam.training.module04.task08;
 //   a) список покупателей в алфавитном порядке;
 //   b) список покупателей, у которых номер кредитной карточки находится в заданном интервале
 
-public class Runner {
+public class Main {
     public static void main(String[] args) {
-        // id, фамилия, имя, отчество, адрес, номер кредитной карточки, номер банковского счета
-        Customer buyer1 = new Customer(1, "Pupkin", "Vasya", "Igoreevich", "Minsk", "2312 3234 4343 4343", 4342);
-        System.out.println(buyer1.toString());
+        CustomerList list = new CustomerList();
+        Customer[] array = list.getCustomerList();
+
+        View.printSortedBySurname(array);
+        View.ptintSortedByCardNo(array);
     }
 }

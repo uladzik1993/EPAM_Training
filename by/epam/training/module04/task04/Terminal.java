@@ -7,10 +7,7 @@ package by.epam.training.module04.task04;
 // Добавьте возможность сортировки массив по пункту назначения,
 // причем поезда с одинаковыми пунктами назначения должны быть упорядочены по времени отправления.
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
 
 public class Terminal {
 

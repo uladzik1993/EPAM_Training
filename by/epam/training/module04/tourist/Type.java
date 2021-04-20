@@ -11,10 +11,8 @@ public class Type {
         CRUISE,
         WALKING;
 
-        tourType() {}
-
-
-
+        tourType() {
+        }
     }
 
     public enum destination {
@@ -25,8 +23,10 @@ public class Type {
         FEODOSIA,
         KRUPKI;
 
-        destination(){}
+        destination() {
+        }
     }
+
     public enum food {
 
         ALL_INCLUSIVE,
@@ -34,8 +34,10 @@ public class Type {
         BREAKFAST_AND_LUNCH,
         ABSENT;
 
-        food() {}
+        food() {
+        }
     }
+
     public enum transportation {
         BY_PLAIN,
         BY_TRAIN,
@@ -43,6 +45,17 @@ public class Type {
         BY_SHIP,
         ON_FOOT;
 
-        transportation() {}
+        transportation() {
+        }
     }
+
+    public enum offerType {
+
+        PREMIUM,
+        MIDDLE,
+        BASIC;
+
+        offerType() {}
+    }
+
 }

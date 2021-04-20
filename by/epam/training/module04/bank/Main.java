@@ -11,14 +11,10 @@ public class Main {
     public static void main(String[] args) {
 
         AccountList accountList = new AccountList();
-        // счёт с заданным номером
 
-        View.printSelectedByNumber(4329482, accountList);
-        // счета, отсортированные в порядке возрастания
+        View.printSelectedByNumber(167892, accountList);
+
         View.printSortedByNumber(accountList.getAccountList());
-
-        // сумма, вычисленная отдельно по всем счетам, счетам с положительным и
-        // отрицательным балансом
 
         View.printSumOfAllAccounts(accountList.getAccountList());
 

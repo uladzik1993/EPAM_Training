@@ -16,6 +16,6 @@ public class Main {
         paymentOne.remove(1);
 
         View.printPurchase(paymentOne);
-        
+
     }
 }

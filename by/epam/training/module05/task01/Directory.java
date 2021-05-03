@@ -2,16 +2,19 @@ package by.epam.training.module05.task01;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Directory {
 
-    private String name;
-    private List<Directory> directoryList;
+    private String name = "new_directory";
+    private List<Directory> directories;
     private List<File> fileList;
 
-    {
-        name = "mew_directory";
-    }
+    // так не делают обычно и в прод коде я такого не вижу, инициализируй в полях просто. это то же самое все равно
+    // я просто оставила тебе, чтоб пояснить, но ты удали этот код
+//    {
+//        name = "new_directory";
+//    }
 
     public Directory() {
     }
@@ -21,23 +24,24 @@ public class Directory {
     }
 
     public void addDirectory(Directory directory) {
-        if (directoryList == null) {
-            directoryList = new ArrayList<Directory>();
+        if (directories == null) {
+            directories = new ArrayList<>();
         }
-        directoryList.add(directory);
+        directories.add(directory);
     }
 
     public void addFile(File file) {
         if (fileList == null) {
-            fileList = new ArrayList<File>();
+            fileList = new ArrayList<>();
         }
         fileList.add(file);
     }
 
     public void removeDirectory(String title) {
-        for (Directory directory : directoryList) {
-            if (directory.getName() == title) {
-                directoryList.remove(directory);
+        for (Directory directory : directories) {
+           // if (directory.getName() == title) { // Отсылаю к https://javarush.ru/groups/posts/equals-java-sravnenie-strok
+            if (directory.getName().equals(title)) {
+                directories.remove(directory);
                 break;
             }
         }
@@ -45,7 +49,7 @@ public class Directory {
 
     public void removeFile(String title) {
         for (File file : fileList) {
-            if (file.getName() == title) {
+            if (file.getName().equals(title)) {
                 fileList.remove(file);
                 break;
             }
@@ -64,12 +68,12 @@ public class Directory {
         setName(newName);
     }
 
-    public List<Directory> getDirectoryList() {
-        return directoryList;
+    public List<Directory> getDirectories() {
+        return directories;
     }
 
-    public void setDirectoryList(List<Directory> directoryList) {
-        this.directoryList = directoryList;
+    public void setDirectories(List<Directory> directories) {
+        this.directories = directories;
     }
 
     public List<File> getFileList() {
@@ -81,46 +85,22 @@ public class Directory {
     }
 
     @Override
-
-    public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + ((directoryList == null) ? 0 : directoryList.hashCode());
-        result = prime * result + ((fileList == null) ? 0 : fileList.hashCode());
-        result = prime * result + ((name == null) ? 0 : name.hashCode());
-        return result;
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Directory directory = (Directory) o;
+        return Objects.equals(name, directory.name) && Objects.equals(directories, directory.directories)
+                && Objects.equals(fileList, directory.fileList);
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        Directory other = (Directory) obj;
-        if (directoryList == null) {
-            if (other.directoryList != null)
-                return false;
-        } else if (!directoryList.equals(other.directoryList))
-            return false;
-        if (fileList == null) {
-            if (other.fileList != null)
-                return false;
-        } else if (!fileList.equals(other.fileList))
-            return false;
-        if (name == null) {
-            if (other.name != null)
-                return false;
-        } else if (!name.equals(other.name))
-            return false;
-        return true;
+    public int hashCode() {
+        return Objects.hash(name, directories, fileList);
     }
 
     @Override
     public String toString() {
-        return "Directory [title=" + name + ", directoryList=" + directoryList + ", fileList=" + fileList + "]";
+        return "Directory [title=" + name + ", directoryList=" + directories + ", fileList=" + fileList + "]";
     }
 
 }

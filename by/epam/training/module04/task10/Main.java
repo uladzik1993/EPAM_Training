@@ -1,11 +1,26 @@
 package by.epam.training.module04.task10;
 
+// Создать класс Airline, спецификация которого приведена ниже.
+// Определить конструкторы, set- и get- методы и метод toString().
+// Создать второй класс, агрегирующий массив типа Airline,
+// с подходящими конструкторами и методами.
+// Задать критерии выбора данных и вывести эти данные на консоль.
+
+// Airline: пункт назначения, номер рейса, тип самолета, время вылета, дни недели.
+
+// Найти и вывести:
+// a) список рейсов для заданного пункта назначения;
+// b) список рейсов для заданного дня недели;
+// c) список рейсов для заданного дня недели,
+// время вылета для которых больше заданного.
+
 public class Main {
+    private static final AirlineService airlineService = new AirlineService();
+
     public static void main(String[] args) {
         AirlineBase schedule = new AirlineBase();
         AirlineBase selectedFlights;
-        Logic select = new Logic();
-        String destinition = "Moscow";
+        String destination = "Moscow";
         String dayOfWeek = "Monday";
         String dayOfWeek2 = "Tuesday";
         String checkTime = "15:00";
@@ -17,16 +32,16 @@ public class Main {
         schedule.add(new Airline("China", 543365, "B37M", "14:20", "Monday"));
         schedule.add(new Airline("Kiev", 967854, "B38M", "20:10", "Tuesday"));
 
-        console.printFirstStep(schedule);
+        console.printAllFlights(schedule);
 
-        selectedFlights = select.destinationSelection(schedule, destinition);
-        console.printDestinationSelection(selectedFlights, destinition);
+        selectedFlights = airlineService.getByDestination(schedule, destination);
+        console.printFlightsByDestination(selectedFlights, destination);
 
-        selectedFlights = select.weekDaySelection(schedule, dayOfWeek);
-        console.printDayOfWeekSelection(selectedFlights, dayOfWeek);
+        selectedFlights = airlineService.getByWeekDay(schedule, dayOfWeek);
+        console.printFlightsDayOfWeek(selectedFlights, dayOfWeek);
 
-        selectedFlights = select.weekDaySelection(schedule, dayOfWeek2);
-        selectedFlights = select.departureTimeSelection(selectedFlights, checkTime);
-        console.printDayOfWeekAndDepatureTimeSelection(selectedFlights, dayOfWeek2, checkTime);
+        selectedFlights = airlineService.getByWeekDay(schedule, dayOfWeek2);
+        selectedFlights = airlineService.getByDepartureTime(selectedFlights, checkTime);
+        console.printFlightsByDayOfWeekAndDepartureTime(selectedFlights, dayOfWeek2, checkTime);
     }
 }

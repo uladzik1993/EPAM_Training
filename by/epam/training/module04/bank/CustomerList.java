@@ -1,15 +1,15 @@
 package by.epam.training.module04.bank;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 public class CustomerList {
 
-    private ArrayList<Customer> customerList;
+    private List<Customer> customerList;
 
     public CustomerList() {
-        super();
-
-        ArrayList<Customer> customerList = new ArrayList<Customer>();
+        List<Customer> customerList = new ArrayList<>();
 
         customerList.add(new Customer(103567478, "Степанчук", "Виктор", "Сергеевич", "ул. Школьная, д.2, кв. 33",
                 new AccountList()));
@@ -25,47 +25,34 @@ public class CustomerList {
         this.customerList = customerList;
     }
 
-    public CustomerList(ArrayList<Customer> customerList) {
-        super();
+    public CustomerList(List<Customer> customerList) {
         this.customerList = customerList;
     }
 
-    public ArrayList<Customer> getCustomerList() {
+    public List<Customer> getCustomerList() {
         return customerList;
     }
 
-    public void setCustomerList(ArrayList<Customer> customerList) {
+    public void setCustomerList(List<Customer> customerList) {
         this.customerList = customerList;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        CustomerList that = (CustomerList) o;
+        return Objects.equals(customerList, that.customerList);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(customerList);
     }
 
     @Override
     public String toString() {
         return this.getClass().getName() + "customerList=" + customerList + "]";
-    }
-
-    @Override
-    public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + ((customerList == null) ? 0 : customerList.hashCode());
-        return result;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        CustomerList other = (CustomerList) obj;
-        if (customerList == null) {
-            if (other.customerList != null)
-                return false;
-        } else if (!customerList.equals(other.customerList))
-            return false;
-        return true;
     }
 
 }

@@ -1,89 +1,112 @@
 package by.epam.training.module04.tourist;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Comparator;
+import java.util.Objects;
 
 public class Offer {
-    private List<Agency> list;
-    private Type.offerType type;
+    private int id;
+    private Type.tourType type;
+    private Type.transportation transport;
+    private Type.food food;
+    private Type.destination destination;
+    private int numNights;
+    private int price;
 
-    {
-        this.list = new ArrayList<Agency>();
-        type = Type.offerType.BASIC;
-    }
-
-    public Offer() {}
-
-    public Offer(Type.offerType type) {
+    public Offer(int id, Type.tourType type, Type.transportation transport, Type.food food,
+                 Type.destination destination, int numNights, int price) {
+        this.id = id;
         this.type = type;
+        this.transport = transport;
+        this.food = food;
+        this.destination = destination;
+        this.numNights = numNights;
+        this.price = price;
     }
 
-    public Offer(Agency agency) {
-        list.add(agency);
+    public void setId(int id) {
+        this.id = id;
+    }
+    public int getId() {
+        return id;
     }
 
-    public void add(Agency agency) {
-        list.add(agency);
-    }
-
-    public void remove (Agency agency){
-        list.remove(agency);
-    }
-
-    public void remove (int id) {
-        for (Agency a : this.list) {
-            if (id == a.getId()) {
-                list.remove(a);
-                break;
-            }
-        }
-    }
-
-    public void setList(List<Agency> list) {
-        this.list = list;
-    }
-
-    public List<Agency> getList() {
-        return this.list;
-    }
-
-    public Type.offerType getType () {
+    public Type.tourType getType() {
         return type;
     }
 
-    public void setType (Type.offerType type) {
+    public void setType(Type.tourType type) {
         this.type = type;
+    }
+
+    public Type.transportation getTransport() {
+        return transport;
+    }
+
+    public void setTransport(Type.transportation transport) {
+        this.transport = transport;
+    }
+
+    public Type.food getFood() {
+        return food;
+    }
+
+    public void setFood(Type.food food) {
+        this.food = food;
+    }
+
+    public Type.destination getDestination() {
+        return destination;
+    }
+
+    public void setDestination(Type.destination destination) {
+        this.destination = destination;
+    }
+
+    public int getNumNights() {
+        return numNights;
+    }
+
+    public void setNumNights(int numNights) {
+        this.numNights = numNights;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    public static Comparator<Offer> ById = Comparator.comparingInt(Offer::getId);
+
+    public static Comparator<Offer> ByNumNights = Comparator.comparingInt(Offer::getNumNights);
+
+    public static Comparator<Offer> ByPrice = Comparator.comparingInt(Offer::getPrice);
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Offer offer = (Offer) o;
+        return id == offer.id && numNights == offer.numNights && price == offer.price && type == offer.type && transport == offer.transport && food == offer.food && destination == offer.destination;
     }
 
     @Override
     public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + ((list == null) ? 0 : list.hashCode());
-        result = prime * result + ((type == null) ? 0 : type.hashCode());
-        return result;
-    }
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        Offer other = (Offer) obj;
-        if (list == null) {
-            if (other.list != null)
-                return false;
-        } else if (!list.equals(other.list))
-            return false;
-        if (type != other.type)
-            return false;
-        return true;
-    }
-    @Override
-    public String toString() {
-        return "Offer [list=" + list + ", type=" + type + "]";
+        return Objects.hash(id, type, transport, food, destination, numNights, price);
     }
 
+    @Override
+    public String toString() {
+        return "Offer{" +
+                "id=" + id +
+                ", type=" + type +
+                ", transport=" + transport +
+                ", food=" + food +
+                ", destination=" + destination +
+                ", numNights=" + numNights +
+                ", price=" + price +
+                '}';
+    }
 }

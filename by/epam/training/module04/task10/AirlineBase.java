@@ -1,12 +1,14 @@
 package by.epam.training.module04.task10;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 public class AirlineBase {
 
-    private ArrayList<Airline> list = new ArrayList<Airline>();
+    private List<Airline> list = new ArrayList<>();
 
-    public AirlineBase(ArrayList<Airline> list) {
+    public AirlineBase(List<Airline> list) {
         this.list = list;
     }
 
@@ -14,9 +16,7 @@ public class AirlineBase {
         this.list.add(airline);
     }
 
-    public AirlineBase() {
-
-    }
+    public AirlineBase() {}
 
     void add(Airline airline) {
         list.add(airline);
@@ -26,41 +26,29 @@ public class AirlineBase {
         list.remove(index);
     }
 
-    public ArrayList<Airline> getList() {
+    public List<Airline> getList() {
         return list;
     }
 
-    public void setList(ArrayList<Airline> list) {
+    public void setList(List<Airline> list) {
         this.list = list;
     }
 
     @Override
-    public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + ((list == null) ? 0 : list.hashCode());
-        return result;
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        AirlineBase that = (AirlineBase) o;
+        return Objects.equals(list, that.list);
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        AirlineBase other = (AirlineBase) obj;
-        if (list == null) {
-            if (other.list != null)
-                return false;
-        } else if (!list.equals(other.list))
-            return false;
-        return true;
+    public int hashCode() {
+        return Objects.hash(list);
     }
 
     @Override
     public String toString() {
-        return "Schedule [list=" + list + "]";
+        return "Flight [list=" + list + "]";
     }
 }

@@ -1,5 +1,7 @@
 package by.epam.training.module04.task08;
 
+import java.util.Objects;
+
 public class Customer {
     private int id;
     private String name;
@@ -87,54 +89,17 @@ public class Customer {
     }
 
     @Override
-    public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + ((address == null) ? 0 : address.hashCode());
-        result = prime * result + accountNumber;
-        result = prime * result + cardNumber;
-        result = prime * result + id;
-        result = prime * result + ((name == null) ? 0 : name.hashCode());
-        result = prime * result + ((patronymic == null) ? 0 : patronymic.hashCode());
-        result = prime * result + ((surname == null) ? 0 : surname.hashCode());
-        return result;
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Customer customer = (Customer) o;
+        return id == customer.id && cardNumber == customer.cardNumber && accountNumber == customer.accountNumber
+                && Objects.equals(name, customer.name) && Objects.equals(surname, customer.surname)
+                && Objects.equals(patronymic, customer.patronymic) && Objects.equals(address, customer.address);
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        Customer other = (Customer) obj;
-        if (address == null) {
-            if (other.address != null)
-                return false;
-        } else if (!address.equals(other.address))
-            return false;
-        if (accountNumber != other.accountNumber)
-            return false;
-        if (cardNumber != other.cardNumber)
-            return false;
-        if (id != other.id)
-            return false;
-        if (name == null) {
-            if (other.name != null)
-                return false;
-        } else if (!name.equals(other.name))
-            return false;
-        if (patronymic == null) {
-            if (other.patronymic != null)
-                return false;
-        } else if (!patronymic.equals(other.patronymic))
-            return false;
-        if (surname == null) {
-            if (other.surname != null)
-                return false;
-        } else if (!surname.equals(other.surname))
-            return false;
-        return true;
+    public int hashCode() {
+        return Objects.hash(id, name, surname, patronymic, address, cardNumber, accountNumber);
     }
 }

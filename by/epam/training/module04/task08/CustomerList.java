@@ -3,15 +3,13 @@ package by.epam.training.module04.task08;
 import java.util.Arrays;
 
 public class CustomerList {
+    public static final int DEFAULT_CUSTOMER_NUMBER = 5;
+
     private Customer[] customerList;
     private int numberCustomer;
 
     public CustomerList() {
-        super();
-
-        int defaultCustomerNumber = 5;
-
-        Customer[] customerList = new Customer[defaultCustomerNumber];
+        Customer[] customerList = new Customer[DEFAULT_CUSTOMER_NUMBER];
 
         customerList[0] = new Customer(12, "Сидоров", "Петр",
                 "Михайлович", "г. Жодино", 23139424,
@@ -29,15 +27,14 @@ public class CustomerList {
                 "Иванович", "г. Полоцк", 37522933,
                 197284364);
 
-        new CustomerList(customerList, defaultCustomerNumber);
+        new CustomerList(customerList, DEFAULT_CUSTOMER_NUMBER);
 
         this.customerList = customerList;
-        this.numberCustomer = defaultCustomerNumber;
+        this.numberCustomer = DEFAULT_CUSTOMER_NUMBER;
     }
 
 
     public CustomerList(Customer[] customerList, int numberCustomer) {
-        super();
         this.customerList = customerList;
         this.numberCustomer = numberCustomer;
     }

@@ -31,29 +31,17 @@ public class TextFile extends File {
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (!super.equals(obj))
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        TextFile other = (TextFile) obj;
-        if (text == null) {
-            if (other.text != null)
-                return false;
-        } else if (!text.equals(other.text))
-            return false;
-
-        return true;
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        TextFile textFile = (TextFile) o;
+        return Objects.equals(text, textFile.text);
     }
 
     @Override
     public int hashCode() {
-        final int prime = 31;
-        int result = super.hashCode();
-        result = prime * result + ((text == null) ? 0 : text.hashCode());
-        return result;
+        return Objects.hash(super.hashCode(), text);
     }
 
     @Override

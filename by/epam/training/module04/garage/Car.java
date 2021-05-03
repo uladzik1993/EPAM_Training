@@ -1,16 +1,14 @@
 package by.epam.training.module04.garage;
 
-import java.util.*;
-
 public class Car {
-    private Wheel wheels[];
+    private Wheel[] wheels;
     private Engine engine;
     private String brand;
     private double consumption;
     private double fuel;
 
     public Car(String brand, double consumption, Engine engine,
-               Wheel wheels[], double fuel) {
+               Wheel[] wheels, double fuel) {
         this.brand = brand;
         this.consumption = consumption;
         this.engine = engine;

@@ -10,14 +10,11 @@ import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) {
 
-        ArrayList<District> districtList = new ArrayList<District>();
+        ArrayList<District> districtList = new ArrayList<>();
         State state = new State();
-        View view = new View();
 
-
-        view.printCapital();
-        view.printRegionNumber();
-        view.printArea();
-
+        View.printCapital(state);
+        View.printRegionNumber(state);
+        View.printArea(state);
     }
 }

@@ -1,13 +1,13 @@
 package by.epam.training.module04.bank;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class AccountInfo {
 
-    public static ArrayList<Account> selectByNumber(int accountNo, AccountList accountList) {
-        ArrayList<Account> accList = new ArrayList<Account>();
+    public static List<Account> selectByNumber(int accountNo, AccountList accountList) {
+        List<Account> accList = new ArrayList<>();
 
         for (Account account : accountList.getAccountList()) {
             if (account.getId() == accountNo) {
@@ -17,65 +17,56 @@ public class AccountInfo {
         return accList;
     }
 
-    public static ArrayList<Account> sortByNumber(ArrayList<Account> accountList) {
-        Account[] accs = new Account[accountList.size()];
+    public static List<Account> sortByNumber(List<Account> accounts) {
+        Account[] result = new Account[accounts.size()];
 
-        for (int i = 0; i < accountList.size(); i++) {
-            accs[i] = accountList.get(i);
+        for (int i = 0; i < accounts.size(); i++) {
+            result[i] = accounts.get(i);
         }
         boolean sort = false;
         Account temp;
         while (!sort) {
             sort = true;
-            for (int i = 0; i < accs.length-1; i++) {
-                if (accs[i].getId() > accs[i + 1].getId()) {
-                    temp = accs[i];
-                    accs[i] = accs[i + 1];
-                    accs[i + 1] = temp;
+            for (int i = 0; i < result.length-1; i++) {
+                if (result[i].getId() > result[i + 1].getId()) {
+                    temp = result[i];
+                    result[i] = result[i + 1];
+                    result[i + 1] = temp;
                     sort = false;
                 }
             }
         }
-        ArrayList<Account> sorted = new ArrayList<Account>(Arrays.asList(accs));
-        return sorted;
+        return new ArrayList<>(Arrays.asList(result));
     }
 
-    public static int sumOfAccounts(ArrayList<Account> accountList) {
-
+    public static int getSumOfAccounts(List<Account> accounts) {
         int sum = 0;
 
-        for (Account a : accountList) {
-            sum += a.getAmount();
+        for (Account account : accounts) {
+            sum += account.getAmount();
         }
-
         return sum;
     }
 
-    public static int sumOfPositiveAccounts(ArrayList<Account> accountList) {
-
+    public static int getSumOfPositiveAccounts(List<Account> accounts) {
         int sum = 0;
 
-        for (Account a : accountList) {
-            if (a.getAmount() > 0) {
-                sum += a.getAmount();
+        for (Account account : accounts) {
+            if (account.getAmount() > 0) {
+                sum += account.getAmount();
             }
         }
-
         return sum;
-
     }
 
-    public static int sumOfNegativeAccounts(ArrayList<Account> accountList) {
-
+    public static int getSumOfNegativeAccounts(List<Account> accounts) {
         int sum = 0;
 
-        for (Account a : accountList) {
-            if (a.getAmount() < 0) {
-                sum += a.getAmount();
+        for (Account account : accounts) {
+            if (account.getAmount() < 0) {
+                sum += account.getAmount();
             }
         }
-
         return sum;
-
     }
 }

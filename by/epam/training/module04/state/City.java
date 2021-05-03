@@ -5,7 +5,6 @@ public class City extends Administration {
     private String districtName;
 
     public City() {
-        super();
         this.setName("Untitled");
     }
 

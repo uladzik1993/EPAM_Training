@@ -1,20 +1,6 @@
-// Создать класс Book, спецификация которого приведена ниже.
-// Определить конструкторы, set- и get- методы и метод toString().
-// Создать второй класс, агрегирующий массив типа Book,
-// с подходящими конструкторами и методами.
-// Задать критерии выбора данных и вывести эти данные на консоль.
-//
-// Book: id, название, автор(ы), издательство, год издания,
-// количество страниц, цена, тип переплета.
-//
-// Найти и вывести:
-// a) список книг заданного автора;
-// b) список книг, выпущенных заданным издательством;
-// c) список книг, выпущенных после заданного года.
-
 package by.epam.training.module04.task09;
 
-import java.security.PublicKey;
+import java.util.Objects;
 
 public class Book {
     private int id;
@@ -104,6 +90,19 @@ public class Book {
 
     public void setTypeCover(String typeCover) {
         this.typeCover = typeCover;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Book book = (Book) o;
+        return id == book.id && year == book.year && numPage == book.numPage && cost == book.cost && Objects.equals(name, book.name) && Objects.equals(author, book.author) && Objects.equals(publisher, book.publisher) && Objects.equals(typeCover, book.typeCover);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, author, publisher, year, numPage, cost, typeCover);
     }
 
     @Override

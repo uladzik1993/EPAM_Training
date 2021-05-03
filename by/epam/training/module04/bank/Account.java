@@ -1,8 +1,8 @@
 package by.epam.training.module04.bank;
 
-import java.security.acl.Owner;
 import java.util.Currency;
 import java.util.Locale;
+import java.util.Objects;
 
 public class Account {
 
@@ -14,10 +14,9 @@ public class Account {
     private boolean blockStatus;
 
     public Account() {
-        super();
         this.locale = Locale.US;
         this.currency = Currency.getInstance(locale);
-        new Account(this.id);
+        new Account(id);
     }
 
     public Account(int id) {
@@ -29,7 +28,6 @@ public class Account {
     }
 
     public Account(Locale locale,int amount, int ownerID, boolean blockStatus, int id) {
-        super();
         this.locale = locale;
         this.amount = amount;
         this.ownerID = ownerID;
@@ -87,52 +85,24 @@ public class Account {
     }
 
     @Override
-    public String toString() {
-        return this.getClass().getName() + "accNumber=" + id + ", ownerId=" + ownerID + ", locale=" + locale
-                + ", currency=" + currency + ", amount=" + amount + ", isBlockedStatus=" + blockStatus + "]";
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Account account = (Account) o;
+        return id == account.id && ownerID == account.ownerID && amount == account.amount
+                && blockStatus == account.blockStatus && Objects.equals(locale, account.locale)
+                && Objects.equals(currency, account.currency);
     }
 
     @Override
     public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + id;
-        result = prime * result + amount;
-        result = prime * result + ((currency == null) ? 0 : currency.hashCode());
-        result = prime * result + (blockStatus ? 1231 : 1237);
-        result = prime * result + ((locale == null) ? 0 : locale.hashCode());
-        result = prime * result + ownerID;
-        return result;
+        return Objects.hash(id, ownerID, locale, currency, amount, blockStatus);
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        Account other = (Account) obj;
-        if (id != other.id)
-            return false;
-        if (amount != other.amount)
-            return false;
-        if (currency == null) {
-            if (other.currency != null)
-                return false;
-        } else if (!currency.equals(other.currency))
-            return false;
-        if (blockStatus != other.blockStatus)
-            return false;
-        if (locale == null) {
-            if (other.locale != null)
-                return false;
-        } else if (!locale.equals(other.locale))
-            return false;
-        if (ownerID != other.ownerID)
-            return false;
-        return true;
+    public String toString() {
+        return this.getClass().getName() + "accNumber=" + id + ", ownerId=" + ownerID + ", locale=" + locale
+                + ", currency=" + currency + ", amount=" + amount + ", isBlockedStatus=" + blockStatus + "]";
     }
 
 }

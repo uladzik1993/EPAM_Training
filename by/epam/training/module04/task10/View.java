@@ -2,43 +2,43 @@ package by.epam.training.module04.task10;
 
 public class View {
 
-    void printFirstStep(AirlineBase library) {
+    void printAllFlights(AirlineBase flights) {
         System.out.println("Task ten. Original list of the flights:");
 
-        for (Airline airline : library.getList()) {
+        for (Airline airline : flights.getList()) {
             System.out.println(airline.toString());
         }
-        System.out.println("");
+        System.out.println();
     }
 
-    void printDestinationSelection(AirlineBase schedule, String destinition) {
-        System.out.println("Criterion of the selection - 'destinition': " + destinition);
+    void printFlightsByDestination(AirlineBase flights, String destination) {
+        System.out.println("Criterion of the selection - 'destination': " + destination);
         System.out.println("Selected list of the flights:");
 
-        for (Airline airline : schedule.getList()) {
+        for (Airline airline : flights.getList()) {
             System.out.println(airline.toString());
         }
-        System.out.println("");
+        System.out.println();
     }
 
-    void printDayOfWeekSelection(AirlineBase schedule, String weekDay) {
+    void printFlightsDayOfWeek(AirlineBase schedule, String weekDay) {
         System.out.println("Criterion of the selection - 'week day': " + weekDay);
         System.out.println("Selected list of the flights:");
 
         for (Airline airline : schedule.getList()) {
             System.out.println(airline.toString());
         }
-        System.out.println("");
+        System.out.println();
     }
 
-    void printDayOfWeekAndDepatureTimeSelection(AirlineBase schedule, String dayOfWeek2, String checkTime) {
+    void printFlightsByDayOfWeekAndDepartureTime(AirlineBase schedule, String dayOfWeek2, String checkTime) {
         System.out.println("Criterion of the selection - 'week day': " + dayOfWeek2 + "; 'after time': " + checkTime);
         System.out.println("Selected list of the flights:");
 
         for (Airline airline : schedule.getList()) {
             System.out.println(airline.toString());
         }
-        System.out.println("");
+        System.out.println();
     }
 
 }

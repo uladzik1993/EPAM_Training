@@ -5,17 +5,16 @@ package by.epam.training.module05.task02;
 
 public class Main {
     public static void main(String[] args) {
-        Payment paymentOne = new Payment();
+        Payment payment = new Payment();
 
-        paymentOne.add("book", 50);
-        paymentOne.add("computer", 1270);
-        paymentOne.add("headphones", 148);
+        payment.add("book", 50);
+        payment.add("computer", 1270);
+        payment.add("headphones", 148);
 
-        View.printPurchase(paymentOne);
+        View.printPayment(payment);
 
-        paymentOne.remove(1);
+        payment.remove(1);
 
-        View.printPurchase(paymentOne);
-
+        View.printPayment(payment);
     }
 }

@@ -4,23 +4,23 @@ package by.epam.training.module05.task03;
 // с помощью объектов которого можно хранить информацию о выходных и праздничных днях.
 
 public class Main {
+
     public static void main(String[] args) {
-        Calendar calendar;
-        View view;
-        boolean result;
-        Logic logic;
-        Calendar weekendCalendar;
+        // Объявляй переменный там же где их инициализируешь а не столпотвори их в начале
+//        Calendar calendar;
+//        View view;
+//        boolean result;
+//        Logic logic;
+//        Calendar weekendCalendar;
 
-        calendar = CalendarBase.createCalendar(2021);
+        Calendar calendar = CalendarBase.createCalendar(2021);
 
-        logic = Logic.getInstance();
+        CalendarService calendarService = CalendarService.getInstance();
 
-        view = new View();
+        boolean result = calendarService.isWeekendDay(calendar.getMonths().get(1).getDays().get(3));
+        View.printResult(result);
 
-        result = logic.isWeekendDay(calendar.getMonthList().get(1).getDayList().get(3));
-        view.printResult(result);
-
-        weekendCalendar = logic.weekendDayList(calendar);
-        view.printWeekendDay(weekendCalendar);
+        Calendar weekendCalendar = calendarService.getWeekendDays(calendar);
+        View.printWeekendDay(weekendCalendar);
     }
 }

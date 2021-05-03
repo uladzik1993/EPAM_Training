@@ -2,12 +2,13 @@ package by.epam.training.module04.tourist;
 
 public class View {
 
-    public void print(Offer offer) {
+    public static void printOffers(Agency offers) {
         System.out.println("Selected offer:");
-        for(Agency t : offer.getList()) {
-            System.out.println(t.toString());
+
+        for(Offer offer : offers.getOffers()) {
+            System.out.println(offer.toString());
         }
-        System.out.println("");
+        System.out.println();
     }
 
 }

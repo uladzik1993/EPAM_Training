@@ -1,16 +1,16 @@
 package by.epam.training.module04.bank;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
+import java.util.Objects;
 
 public class AccountList {
 
-    private ArrayList<Account> accountList = new ArrayList<Account>();
+    private List<Account> accountList;
 
     public AccountList() {
-        super();
-
-        ArrayList<Account> accountList = new ArrayList<Account>();
+        List<Account> accountList = new ArrayList<>();
 
         accountList.add(new Account(Locale.US, -12415, 234845353, false, 3274569));
         accountList.add(new Account(Locale.US, 10000, 244535433, false, 3482617));
@@ -22,47 +22,34 @@ public class AccountList {
         this.accountList = accountList;
     }
 
-    public AccountList(ArrayList<Account> accountList) {
-        super();
+    public AccountList(List<Account> accountList) {
         this.accountList = accountList;
     }
 
-    public ArrayList<Account> getAccountList() {
+    public List<Account> getAccountList() {
         return accountList;
     }
 
-    public void setAccountList(ArrayList<Account> accountList) {
+    public void setAccountList(List<Account> accountList) {
         this.accountList = accountList;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        AccountList that = (AccountList) o;
+        return Objects.equals(accountList, that.accountList);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(accountList);
     }
 
     @Override
     public String toString() {
         return this.getClass().getName() + "accountList=" + accountList + "]";
-    }
-
-    @Override
-    public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + ((accountList == null) ? 0 : accountList.hashCode());
-        return result;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        AccountList other = (AccountList) obj;
-        if (accountList == null) {
-            if (other.accountList != null)
-                return false;
-        } else if (!accountList.equals(other.accountList))
-            return false;
-        return true;
     }
 
 }

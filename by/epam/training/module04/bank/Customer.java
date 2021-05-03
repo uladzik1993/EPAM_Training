@@ -1,5 +1,7 @@
 package by.epam.training.module04.bank;
 
+import java.util.Objects;
+
 public class Customer {
 
     private int id;
@@ -9,15 +11,11 @@ public class Customer {
     private String address;
     private AccountList accountList = new AccountList();
 
-
     public Customer() {
-        super();
-
     }
 
     public Customer(int id, String surName, String firstName, String patronymic, String address,
                     AccountList accountList) {
-        super();
         this.id = id;
         this.surName = surName;
         this.firstName = firstName;
@@ -51,55 +49,18 @@ public class Customer {
     }
 
     @Override
-    public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + ((accountList == null) ? 0 : accountList.hashCode());
-        result = prime * result + ((address == null) ? 0 : address.hashCode());
-        result = prime * result + ((firstName == null) ? 0 : firstName.hashCode());
-        result = prime * result + id;
-        result = prime * result + ((patronymic == null) ? 0 : patronymic.hashCode());
-        result = prime * result + ((surName == null) ? 0 : surName.hashCode());
-        return result;
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Customer customer = (Customer) o;
+        return id == customer.id && Objects.equals(surName, customer.surName)
+                && Objects.equals(firstName, customer.firstName) && Objects.equals(patronymic, customer.patronymic)
+                && Objects.equals(address, customer.address) && Objects.equals(accountList, customer.accountList);
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        Customer other = (Customer) obj;
-        if (accountList == null) {
-            if (other.accountList != null)
-                return false;
-        } else if (!accountList.equals(other.accountList))
-            return false;
-        if (address == null) {
-            if (other.address != null)
-                return false;
-        } else if (!address.equals(other.address))
-            return false;
-        if (firstName == null) {
-            if (other.firstName != null)
-                return false;
-        } else if (!firstName.equals(other.firstName))
-            return false;
-        if (id != other.id)
-            return false;
-        if (patronymic == null) {
-            if (other.patronymic != null)
-                return false;
-        } else if (!patronymic.equals(other.patronymic))
-            return false;
-        if (surName == null) {
-            if (other.surName != null)
-                return false;
-        } else if (!surName.equals(other.surName))
-            return false;
-        return true;
+    public int hashCode() {
+        return Objects.hash(id, surName, firstName, patronymic, address, accountList);
     }
 
     @Override

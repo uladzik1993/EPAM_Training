@@ -2,15 +2,13 @@ package by.epam.training.module05.task03;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Calendar {
 
     private int year;
-    private List<Month> monthList;
-
-    {
-        monthList = new ArrayList<Month>();
-    }
+    //private List<Month> months = new ArrayList<Month>(); Тебе не нужно явно прописывать в <> - Month, джава сама подставит
+    private List<Month> months = new ArrayList<>();
 
     public Calendar() {
     }
@@ -20,15 +18,15 @@ public class Calendar {
     }
 
     public void add(Month month) {
-        monthList.add(month);
+        months.add(month);
     }
 
-    public List<Month> getMonthList() {
-        return monthList;
+    public List<Month> getMonths() {
+        return months;
     }
 
-    public void setMonthList(List<Month> monthList) {
-        this.monthList = monthList;
+    public void setMonths(List<Month> months) {
+        this.months = months;
     }
 
     public int getYear() {
@@ -40,39 +38,23 @@ public class Calendar {
     }
     @Override
     public String toString() {
-        return "Calendar [monthList=" + monthList + ", year=" + year + "]";
+        return "Calendar [months=" + months + ", year=" + year + "]";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Calendar calendar = (Calendar) o;
+        return year == calendar.year && Objects.equals(months, calendar.months);
     }
 
     @Override
     public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + ((monthList == null) ? 0 : monthList.hashCode());
-        result = prime * result + year;
-        return result;
+        return Objects.hash(year, months);
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        Calendar other = (Calendar) obj;
-        if (monthList == null) {
-            if (other.monthList != null)
-                return false;
-        } else if (!monthList.equals(other.monthList))
-            return false;
-        if (year != other.year)
-            return false;
-        return true;
-    }
-
-
-    class Day {
+    static class Day {
         private int num;
         private DayName dayName;
         private boolean weekend;
@@ -104,38 +86,16 @@ public class Calendar {
         }
 
         @Override
-        public int hashCode() {
-            final int prime = 31;
-            int result = 1;
-            result = prime * result + getEnclosingInstance().hashCode();
-            result = prime * result + ((dayName == null) ? 0 : dayName.hashCode());
-            result = prime * result + (weekend ? 1231 : 1237);
-            result = prime * result + num;
-            return result;
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            Day day = (Day) o;
+            return num == day.num && weekend == day.weekend && dayName == day.dayName;
         }
 
         @Override
-        public boolean equals(Object obj) {
-            if (this == obj)
-                return true;
-            if (obj == null)
-                return false;
-            if (getClass() != obj.getClass())
-                return false;
-            Day other = (Day) obj;
-            if (!getEnclosingInstance().equals(other.getEnclosingInstance()))
-                return false;
-            if (dayName != other.dayName)
-                return false;
-            if (weekend != other.weekend)
-                return false;
-            if (num != other.num)
-                return false;
-            return true;
-        }
-
-        private Calendar getEnclosingInstance() {
-            return Calendar.this;
+        public int hashCode() {
+            return Objects.hash(num, dayName, weekend);
         }
 
         @Override
@@ -145,28 +105,12 @@ public class Calendar {
     }
 
     public enum DayName {
-
         MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY;
-
-        public boolean weekend() {
-            switch (this) {
-                case SUNDAY:
-                case SATURDAY:
-                    return true;
-                default:
-                    return false;
-            }
-
-        }
     }
 
-    class Month {
-        private List<Day> dayList;
+    static class Month {
+        private List<Day> days = new ArrayList<>();
         private String name;
-
-        {
-            this.dayList = new ArrayList<Day>();
-        }
 
         public Month() {
 
@@ -185,58 +129,33 @@ public class Calendar {
         }
 
         public void addDay(Day day) {
-            this.dayList.add(day);
+            this.days.add(day);
         }
 
-        public List<Day> getDayList() {
-            return dayList;
+        public List<Day> getDays() {
+            return days;
         }
 
-        public void setDayList(List<Day> dayList) {
-            this.dayList = dayList;
+        public void setDays(List<Day> days) {
+            this.days = days;
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            Month month = (Month) o;
+            return Objects.equals(days, month.days) && Objects.equals(name, month.name);
         }
 
         @Override
         public int hashCode() {
-            final int prime = 31;
-            int result = 1;
-            result = prime * result + getEnclosingInstance().hashCode();
-            result = prime * result + ((dayList == null) ? 0 : dayList.hashCode());
-            result = prime * result + ((name == null) ? 0 : name.hashCode());
-            return result;
-        }
-
-        @Override
-        public boolean equals(Object obj) {
-            if (this == obj)
-                return true;
-            if (obj == null)
-                return false;
-            if (getClass() != obj.getClass())
-                return false;
-            Month other = (Month) obj;
-            if (!getEnclosingInstance().equals(other.getEnclosingInstance()))
-                return false;
-            if (dayList == null) {
-                if (other.dayList != null)
-                    return false;
-            } else if (!dayList.equals(other.dayList))
-                return false;
-            if (name == null) {
-                if (other.name != null)
-                    return false;
-            } else if (!name.equals(other.name))
-                return false;
-            return true;
-        }
-
-        private Calendar getEnclosingInstance() {
-            return Calendar.this;
+            return Objects.hash(days, name);
         }
 
         @Override
         public String toString() {
-            return "Month [dayList=" + dayList + ", title=" + name + "]";
+            return "Month [dayList=" + days + ", title=" + name + "]";
         }
     }
 

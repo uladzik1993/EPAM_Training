@@ -1,9 +1,8 @@
 package by.epam.training.module04.task10;
 
-import java.util.Locale;
+public class AirlineService {
 
-public class Logic {
-    AirlineBase destinationSelection(AirlineBase list, String destination) {
+    public AirlineBase getByDestination(AirlineBase list, String destination) {
         AirlineBase selectedList = new AirlineBase();
         for (Airline airline : list.getList()) {
             if (airline.getDestination().equals(destination)) {
@@ -13,7 +12,7 @@ public class Logic {
         return selectedList;
     }
 
-    AirlineBase weekDaySelection(AirlineBase list, String weekDay) {
+    public AirlineBase getByWeekDay(AirlineBase list, String weekDay) {
         AirlineBase selectedList = new AirlineBase();
 
         for (Airline airline : list.getList()) {
@@ -24,10 +23,10 @@ public class Logic {
         return selectedList;
     }
 
-    AirlineBase departureTimeSelection(AirlineBase list, String time) {
+    public AirlineBase getByDepartureTime(AirlineBase flights, String time) {
         AirlineBase selectedList = new AirlineBase();
 
-        for (Airline airline : list.getList()) {
+        for (Airline airline : flights.getList()) {
             if (minAlphabetSequence(airline.getDepartureTime(), time)) {
                 selectedList.add(airline);
             }
@@ -35,7 +34,8 @@ public class Logic {
         return selectedList;
     }
 
-    private static boolean minAlphabetSequence(String word1, String word2) {
+    // Исходя из имени метода и переменных внутри его мне не понятно вообще что он делает
+    private boolean minAlphabetSequence(String word1, String word2) {
         String tmpWord1;
         String tmpWord2;
         int minNum;

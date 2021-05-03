@@ -1,18 +1,18 @@
 package by.epam.training.module04.state;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class State extends Administration {
-    private ArrayList<Region> regionList;
-    private ArrayList<District> districtList;
+    private List<Region> regionList;
+    private List<District> districtList;
     private City capital;
 
     public State() {
-        super();
         this.setName("unName");
         this.setCapital(new City());
 
-        ArrayList<District> districtList = new ArrayList<District>();
+        ArrayList<District> districtList = new ArrayList<>();
         District dst = new District("UnNamedDistrict");
         districtList.add(dst);
         this.setDistrictList(districtList);
@@ -20,19 +20,19 @@ public class State extends Administration {
         this.setArea(123456789);
     }
 
-    public ArrayList<Region> getRegionList() {
+    public List<Region> getRegionList() {
         return regionList;
     }
 
-    public void setRegionList(ArrayList<Region> regionList) {
+    public void setRegionList(List<Region> regionList) {
         this.regionList = regionList;
     }
 
-    public ArrayList<District> getDistrictList() {
+    public List<District> getDistrictList() {
         return districtList;
     }
 
-    public void setDistrictList (ArrayList<District> districtList) {
+    public void setDistrictList (List<District> districtList) {
         this.districtList = districtList;
     }
 

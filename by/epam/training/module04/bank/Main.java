@@ -12,6 +12,8 @@ public class Main {
 
         AccountList accountList = new AccountList();
 
+        // Нужно убрать логику из Вью, этот класс должен просто получать данные и их выводить
+        // логику надо тут вызывать, получать результат какойто и передавать его уже Вью, как в задании 9 я тебе переделала
         View.printSelectedByNumber(167892, accountList);
 
         View.printSortedByNumber(accountList.getAccountList());

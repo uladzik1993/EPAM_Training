@@ -1,13 +1,13 @@
 package by.epam.training.module04.task09;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Library {
-    private ArrayList<Book> baseLibrary = new ArrayList<Book>();
+    private final List<Book> baseLibrary; //используй интерфейс List для ссылки, а не ArrayList
 
     public Library() {
-        super();
-        ArrayList<Book> defaultBaseLibrary = new ArrayList<Book>();
+        List<Book> defaultBaseLibrary = new ArrayList<>();
         defaultBaseLibrary.add(new Book(1, "The Java Language Specification",
                 "James Gosling", "Oracle",
                 2015, 768, 0, "eBook"));
@@ -26,12 +26,12 @@ public class Library {
         this.baseLibrary = defaultBaseLibrary;
     }
 
-    public Library(ArrayList<Book> baseLibrary) {
+    public Library(List<Book> baseLibrary) {
         super();
         this.baseLibrary = baseLibrary;
     }
 
-    public ArrayList<Book> getBaseLibrary() {
+    public List<Book> getBaseLibrary() {
         return baseLibrary;
     }
 }

@@ -11,11 +11,15 @@ package by.epam.training.module04.task08;
 //   b) список покупателей, у которых номер кредитной карточки находится в заданном интервале
 
 public class Main {
+
     public static void main(String[] args) {
         CustomerList list = new CustomerList();
         Customer[] array = list.getCustomerList();
 
         View.printSortedBySurname(array);
-        View.ptintSortedByCardNo(array);
+        //  в заданном интервале! тебе надо передавать интервал как параметр, а не хардкодать
+        // более того, у тя было захардкодано в 2 местах (Логика и Вью) и для 30000000 ты походу ошибся в нулях,
+        // потмоу что там на один 0 меньше было, это наглядный пример сложностей который могут возникнуть при твоем подходе
+        View.printSortedByCardNumberRange(array, 2000000, 30000000);
     }
 }

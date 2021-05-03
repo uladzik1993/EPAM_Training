@@ -7,7 +7,7 @@ public class View {
         System.out.println("Название директории: " + directory.getName());
         System.out.println("Список директорий: ");
 
-        for (Directory innerDirectory : directory.getDirectoryList()) {
+        for (Directory innerDirectory : directory.getDirectories()) {
             System.out.print(innerDirectory.getName() + ", ");
         }
 
@@ -16,7 +16,6 @@ public class View {
         for (File innerFile : directory.getFileList()) {
             System.out.print(innerFile.getName() + ", ");
         }
-
     }
 
 }

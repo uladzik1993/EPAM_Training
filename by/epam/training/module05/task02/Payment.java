@@ -1,19 +1,16 @@
 package by.epam.training.module05.task02;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Payment {
 
     private static int id;
-    private ArrayList<Product> list;
+    private final ArrayList<Product> list = new ArrayList<>();
     private double totalPrice;
 
-    {
-        id++;
-        list = new ArrayList<Product>();
-    }
-
     public Payment() {
+        id++;
     }
 
     public void add (String name, double price) {
@@ -39,10 +36,8 @@ public class Payment {
         return totalPrice;
     }
 
-
-
-    public class Product {
-        private String name;
+    public static class Product {
+        private final String name;
         private double price;
 
         public Product(String name, double price) {
@@ -58,42 +53,17 @@ public class Payment {
             this.price = price;
         }
 
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            Product product = (Product) o;
+            return Double.compare(product.price, price) == 0 && Objects.equals(name, product.name);
+        }
 
         @Override
         public int hashCode() {
-            final int prime = 31;
-            int result = 1;
-            result = prime * result + getEnclosingInstance().hashCode();
-            long temp;
-            temp = Double.doubleToLongBits(price);
-            result = prime * result + (int) (temp ^ (temp >>> 32));
-            result = prime * result + ((name == null) ? 0 : name.hashCode());
-            return result;
-        }
-
-        @Override
-        public boolean equals(Object obj) {
-            if (this == obj)
-                return true;
-            if (obj == null)
-                return false;
-            if (getClass() != obj.getClass())
-                return false;
-            Product other = (Product) obj;
-            if (!getEnclosingInstance().equals(other.getEnclosingInstance()))
-                return false;
-            if (Double.doubleToLongBits(price) != Double.doubleToLongBits(other.price))
-                return false;
-            if (name == null) {
-                if (other.name != null)
-                    return false;
-            } else if (!name.equals(other.name))
-                return false;
-            return true;
-        }
-
-        private Payment getEnclosingInstance() {
-            return Payment.this;
+            return Objects.hash(name, price);
         }
 
         @Override
